@@ -1,3 +1,14 @@
+from math import cos,sin,pi,floor,sqrt
+from subprocess import Popen,PIPE
+def asg(l,v,i=0):
+    l[i]=v
+class Img:
+    def __init__(self,r,c):
+        self.c,self.r,self.img,self.zbuf,self.lns,self.ln,self.s,self.oof,self.pgs,self.fxmldr=c,r,[0]*r*c,[float("-inf")]*r*c,(lambda p,w=0:[[self.ln(r-round(p[i+1]/p[i+3]),round(p[i]/p[i+3]),p[i+2]/p[i+3],r-round(p[i+5]/p[i+7]),round(p[i+4]/p[i+7]),p[i+6]/p[i+7],w)for i in range(0,len(p),8)],self][1]),(lambda rs,cs,zs,rf,cf,zf,v,e=[0,0]:self.ln(rf,cf,zf,rs,cs,zs,v)if(rs>rf if abs(rf-rs)<abs(cf-cs)else cs>cf)else(([asg(e,rs,1),asg(e,2*abs(rf-rs)-abs(cf-cs)),[[self.s(e[1],c,v,zs+(zf-zs)*(cs-c)/(cs-cf)),asg(e,e[1]+1,1),asg(e,e[0]+2*abs(rf-rs)-2*abs(cf-cs))]if 0<e[0]else[self.s(e[1],c,v,zs+(zf-zs)*(cs-c)/(cs-cf)),asg(e,e[0]+2*abs(rf-rs))]for c in range(cs,cf-1 if cs>cf else cf+1,-1 if cs>cf else 1)]]if cs!=cf else self.s(rs,cs,v,zs))if abs(rf-rs)<abs(cf-cs)else([asg(e,cs,1),asg(e,2*abs(cf-cs)-abs(rf-rs)),[[self.s(r,e[1],v,zs+(zf-zs)*(rs-r)/(rs-rf)),asg(e,e[1]+1,1),asg(e,e[0]+2*abs(cf-cs)-2*abs(rf-rs))]if 0<e[0]else[self.s(r,e[1],v,zs+(zf-zs)*(rs-r)/(rs-rf)),0,asg(e,e[0]+2*abs(cf-cs))]for r in range(rs,rf-1 if rs>rf else rf+1,-1 if rs>rf else 1)]])if rs!=rf else self.s(rs,cs,v,zs))),(lambda r,c,v,z:[asg(self.img,v,c+r*self.c),asg(self.zbuf,z,c+r*self.c)]if-1<r<self.r and-1<c<self.c and z>self.zbuf[c+r*self.c]else 0),(lambda:"P3 "+str(self.c)+" "+str(self.r)+" 255\n"+" ".join(str(floor(i/65536)%256)+" "+str(floor(i/256)%256)+" "+str(i%256) for i in self.img)),(lambda p,l:[[self.fxmldr(r-round(p.m[i+1]/p.m[i+3]),round(p.m[i]/p.m[i+3]),p.m[i+2]/p.m[i+3],r-round(p.m[i+5]/p.m[i+7]),round(p.m[i+4]/p.m[i+7]),p.m[i+6]/p.m[i+7],r-round(p.m[i+9]/p.m[i+11]),round(p.m[i+8]/p.m[i+11]),p.m[i+10]/p.m[i+11],p.collapsethelightintoearth(i,l))for i in range(0,len(p.m),12)if p.bfc(i,(0,0,1))>0],self][1]),(lambda x,y,z,a,b,c,d,e,f,t:[[self.ln(round(p[0][0]+(p[2][0]-p[0][0])*(r-p[0][1])/(p[2][1]-p[0][1])),r,p[0][2]+(p[2][2]-p[0][2])*(r-p[0][1])/(p[2][1]-p[0][1]),round(p[0][0]+(p[1][0]-p[0][0])*(r-p[0][1])/(p[1][1]-p[0][1])),r,p[0][2]+(p[1][2]-p[0][2])*(r-p[0][1])/(p[1][1]-p[0][1]),t)if r<p[1][1]else self.ln(round(p[0][0]+(p[2][0]-p[0][0])*(r-p[0][1])/(p[2][1]-p[0][1])),r,p[0][2]+(p[2][2]-p[0][2])*(r-p[0][1])/(p[2][1]-p[0][1]),round(p[1][0]+(p[2][0]-p[1][0])*(r-p[1][1])/(p[2][1]-p[1][1])),r,p[1][2]+(p[2][2]-p[1][2])*(r-p[1][1])/(p[2][1]-p[1][1]),t)for r in range(p[0][1],p[2][1])]for p in [sorted([[x,y,z],[a,b,c],[d,e,f]],key=lambda q:q[1])]])
+class Etrx:
+    def __init__(self,m=[]):
+        self.m,self.e,self.oof,self.x,self.idm,self.c,self.hb,self.t,self.bfc,self.nermal,self.dtp,self.crs,self.nilrecurring,self.collapsethelightintoearth,self.ka,self.kd,self.ks,self.limelight=list(m),(lambda s,f:[self.m.append(i)for i in(*s,1,*f,1)]),(lambda:"\n".join(" ".join(("  "if i<10 else" "if i<100 else"")+str(i) for i in self.m[j::4]) for j in range(4))+"\n"),(lambda m:[self,[asg(self.m,e,i)for(i,e)in enumerate([sum(float(m[i%4+k*4])*self.m[i-(i%4)+k]for k in range(4))for i in range(len(self.m))])]][0]),(lambda:[[asg(self.m,1.0 if i==j else 0.0,j+4*i)for j in range(4)for i in range(4)]if self.m else[self.m.append(1.0 if i==j else 0.0)for j in range(4)for i in range(4)],self][1]),(lambda x,y,z,r:[[self.e(*[[x+r*cos((t+d)/mx*2*pi),y+r*sin((t+d)/mx*2*pi),z]for d in(0,1)])for t in range(round(mx))]for mx in[40]]),(lambda xyxy,m:[[self.e(*[[(lambda a,t:sum(pow(t,3-i)*a[i]for i in range(4)))(Etrx([xyxy[2*i+k]for i in range(4)]).x(m).m,(h+d)/mx)for k in(0,1)]+[0]for d in(0,1)])for h in range(mx)]for mx in[20]]),(lambda p,b,d:[self.m.append(i)for i in(*p,1,*b,1,*d,1)]),(lambda i,lk:self.dtp(lk,self.nermal(i))),(lambda i:self.nilrecurring(self.crs(*[[self.m[i+j+k]-self.m[i+j]for j in(0,1,2)]for k in(4,8)]))),(lambda m,pth:sum(m[i]*pth[i]for i in range(len(pth)))),(lambda p,vi:(p[1]*vi[2]-p[2]*vi[1],p[2]*vi[0]-p[0]*vi[2],p[0]*vi[1]-p[1]*vi[0])),(lambda x:[[i/f for i in x]for f in[sqrt(self.dtp(x,x))]][0]if self.dtp(x,x)else[0]*3),(lambda i,l:[sum(e*pow(256,i)for i,e in enumerate([round(min(255,l[0][c]*self.ka[c]+sum([(self.kd[c]*max(0,self.dtp(z,Z))+self.ks[c]*pow(max(0,2*z[2]*self.dtp(Z,z)-Z[2]),4))*k[c]for Z in[self.nilrecurring(k['v'])]][0]for k in l[1:])))for c in"bgr"]))for z in[self.nermal(i)]][0]),{"r":1,"g":1,"b":1},{"r":0.5,"g":0.5,"b":0.5},{"r":0.5,"g":0.5,"b":0.5},(lambda:sum(pow(256,i)*round(255*self.ka["bgr"[i]])for i in(0,1,2)))
+(lambda cs,edgm,pogm,terraformer,light,filename:[[{"push":(lambda:cs.append(Etrx(cs[-1].m))),"pop":(lambda:cs.pop()),"line":(lambda:[edgm.e([float(i)for i in b[1][:3]],[float(i)for i in b[1][3:]]),edgm.x(cs[-1].m),terraformer.lns(edgm.m,pogm.limelight()),edgm.m.clear()]),"circle":(lambda:[edgm.c(*[float(i)for i in b[1]]),edgm.x(cs[-1].m),terraformer.lns(edgm.m,pogm.limelight()),edgm.m.clear()]),"hermite":(lambda:[edgm.hb([float(i)for i in b[1]],(2,-3,0,1,-2,3,0,0,1,-2,1,0,1,-1,0,0)),edgm.x(cs[-1].m),terraformer.lns(edgm.m,pogm.limelight()),edgm.m.clear()]),"bezier":(lambda:[edgm.hb([float(i)for i in b[1]],(-1,3,-3,1,3,-6,3,0,-3,3,0,0,1,0,0,0)),edgm.x(cs[-1].m),terraformer.lns(edgm.m,pogm.limelight()),edgm.m.clear()]),"face":(lambda:[pogm.t(*[[float(b[1][i+j])for j in(0,1,2)]for i in(0,3,6)]),pogm.x(cs[-1].m),terraformer.pgs(pogm,light),pogm.m.clear()]),"box":(lambda:[[pogm.t(*ooo)for ooo in[(((o[0],o[1],o[2]),(o[0],o[1]-o[4],o[2]),(o[0]+o[3],o[1],o[2])),((o[0],o[1]-o[4],o[2]),(o[0]+o[3],o[1]-o[4],o[2]),(o[0]+o[3],o[1],o[2])),((o[0],o[1],o[2]-o[5]),(o[0]+o[3],o[1],o[2]-o[5]),(o[0],o[1]-o[4],o[2]-o[5])),((o[0],o[1]-o[4],o[2]-o[5]),(o[0]+o[3],o[1],o[2]-o[5]),(o[0]+o[3],o[1]-o[4],o[2]-o[5])),((o[0]+o[3],o[1],o[2]),(o[0]+o[3],o[1]-o[4],o[2]),(o[0]+o[3],o[1],o[2]-o[5])),((o[0]+o[3],o[1]-o[4],o[2]),(o[0]+o[3],o[1]-o[4],o[2]-o[5]),(o[0]+o[3],o[1],o[2]-o[5])),((o[0],o[1],o[2]),(o[0],o[1],o[2]-o[5]),(o[0],o[1]-o[4],o[2])),((o[0],o[1]-o[4],o[2]),(o[0],o[1],o[2]-o[5]),(o[0],o[1]-o[4],o[2]-o[5])),((o[0],o[1],o[2]-o[5]),(o[0],o[1],o[2]),(o[0]+o[3],o[1],o[2]-o[5])),((o[0],o[1],o[2]),(o[0]+o[3],o[1],o[2]),(o[0]+o[3],o[1],o[2]-o[5])),((o[0],o[1]-o[4],o[2]-o[5]),(o[0]+o[3],o[1]-o[4],o[2]-o[5]),(o[0],o[1]-o[4],o[2])),((o[0],o[1]-o[4],o[2]),(o[0]+o[3],o[1]-o[4],o[2]-o[5]),(o[0]+o[3],o[1]-o[4],o[2])))for o in [[float(oo)for oo in b[1]]]][0]],pogm.x(cs[-1].m),terraformer.pgs(pogm,light),pogm.m.clear()]),"sphere":(lambda:[[[[(pogm.t(p[i],p[i+1],p[(i+k)%len(p)])if len([p[i],p[i+1],p[(i+k)%len(p)]])==len(set([p[i],p[i+1],p[(i+k)%len(p)]]))else 0,pogm.t(p[(i+1+k)%len(p)],p[(i+k)%len(p)],p[i+1])if len([p[(i+1+k)%len(p)],p[i+1],p[(i+k)%len(p)]])==len(set([p[(i+1+k)%len(p)],p[i+1],p[(i+k)%len(p)]]))else 0)for i in range(len(p))if i%k!=k-1]for p in[[(float(b[1][0])+float(b[1][3])*cos(pi*j/(k-1)),float(b[1][1])+float(b[1][3])*sin(pi*j/(k-1))*cos(2*pi*i/k),float(b[1][2])+float(b[1][3])*sin(pi*j/(k-1))*sin(2*pi*i/k))for i in range(k)for j in range(k)]]]for k in[50]],pogm.x(cs[-1].m),terraformer.pgs(pogm,light),pogm.m.clear()]),"torus":(lambda:[[[[(pogm.t(p[i],p[(i+k)%len(p)],p[i-i%k+(i+1)%k]),pogm.t(p[(i+k)%len(p)],p[(i-i%k+(i+1)%k+k)%len(p)],p[i-i%k+(i+1)%k]))for i in range(len(p))]for p in[[(float(b[1][0])+(float(b[1][3])*cos(2*pi*i/k)+float(b[1][4]))*cos(2*pi*j/k),float(b[1][1])+float(b[1][3])*sin(2*pi*i/k),float(b[1][0])+(float(b[1][3])*cos(2*pi*i/k)+float(b[1][4]))*sin(2*pi*j/k))for i in range(k)for j in range(k)]]]for k in[30]],pogm.x(cs[-1].m),terraformer.pgs(pogm,light),pogm.m.clear()]),"scale":(lambda:asg(cs,Etrx((float(b[1][0]),0,0,0,0,float(b[1][1]),0,0,0,0,float(b[1][2]),0,0,0,0,1)).x(cs[-1].m),-1)),"move":(lambda:asg(cs,Etrx((1,0,0,0,0,1,0,0,0,0,1,0,float(b[1][0]),float(b[1][1]),float(b[1][2]),1)).x(cs[-1].m),-1)),"rotate":(lambda:asg(cs,Etrx({"x":(1,0,0,0,0,cos(float(b[1][1])/180*pi),sin(float(b[1][1])/180*pi),0,0,sin(float(b[1][1])/-180*pi),cos(float(b[1][1])/180*pi),0,0,0,0,1),"y":(cos(float(b[1][1])/180*pi),0,sin(float(b[1][1])/-180*pi),0,0,1,0,0,sin(float(b[1][1])/180*pi),0,cos(float(b[1][1])/180*pi),0,0,0,0,1),"z":(cos(float(b[1][1])/180*pi),sin(float(b[1][1])/180*pi),0,0,sin(float(b[1][1])/-180*pi),cos(float(b[1][1])/180*pi),0,0,0,0,1,0,0,0,0,1)}[b[1][0]]).x(cs[-1].m),-1)),"project":(lambda:cs[-1].x((1,0,0,0,0,1,0,0,0,0,0,0,0,0,1/float(b[1][0]),1))),"display":(lambda:[open("temp.ppm","w+").write(terraformer.oof()),Popen(("display","temp.ppm"),stdin=PIPE,stdout=PIPE,stderr=PIPE).communicate(),Popen(("rm","temp.ppm"),stdin=PIPE,stdout=PIPE,stderr=PIPE).communicate()]),"save":(lambda:[open("temp2.ppm","w+").write(terraformer.oof()),Popen(("convert","temp2.ppm",b[1][0]),stdin=PIPE,stdout=PIPE,stderr=PIPE).communicate(),Popen(("rm","temp2.ppm"),stdin=PIPE,stdout=PIPE,stderr=PIPE).communicate()]),"clear":(lambda:[[asg(terraformer.img,0,i)for i in range(terraformer.r*terraformer.c)],[asg(terraformer.zbuf,float("-inf"),i)for i in range(terraformer.r*terraformer.c)]]),"ka":(lambda:[asg(pogm.ka,float(b[1][i]),"rgb"[i])for i in(0,1,2)]),"kd":(lambda:[asg(pogm.kd,float(b[1][i]),"rgb"[i])for i in(0,1,2)]),"ks":(lambda:[asg(pogm.ks,float(b[1][i]),"rgb"[i])for i in(0,1,2)]),"light":(lambda:light.append({"rgbv"[i]:float(b[1][i])if i<3 else[float(b[1][j])for j in(3,4,5)]for i in(0,1,2,3)})),"ambient":(lambda:[asg(light[0],float(b[1][i]),"rgb"[i])for i in(0,1,2)])}[b[0]]()for b in[(e[0],(*tuple(fl),[])[i+1])for(i,e)in enumerate(fl)if e and e[0]in("push","pop","line","circle","hermite","bezier","face","box","sphere","torus","scale","move","rotate","project","display","save","clear","ka","kd","ks","light","ambient")]]for fl in[[k.split(" ")for k in open(filename,"r").read().split("\n")if k]]])([Etrx().idm()],Etrx(),Etrx(),Img(500,500),[{"r":255,"g":255,"b":255}],"foabp.txt")
 ka
 0.1 0.1 0.3
 ks
@@ -7513,6 +7524,1119 @@ sphere
 140 238 -50 25
 sphere
 337 246 -50 25
+pop
+ka
+0 0 0
+push
+move
+0 500 200
+rotate
+x 180
+bezier
+180 216 146 176 148 110 172 88
+bezier
+200 190 182 130 206 92 223 76
+bezier
+176 168 181 119 186 82 218 67
+bezier
+216 194 207 128 237 69 262 60
+bezier
+225 179 228 118 229 80 267 53
+bezier
+154 186 143 133 164 88 182 71
+bezier
+135 201 117 148 125 98 152 71
+bezier
+119 190 102 140 98 93 118 72
+bezier
+121 171 115 129 120 94 141 67
+bezier
+153 160 131 117 106 90 123 63
+bezier
+164 180 166 132 185 88 209 68
+bezier
+159 184 165 138 178 104 204 64
+bezier
+282 166 274 130 281 83 299 60
+bezier
+275 126 273 93 277 63 287 40
+bezier
+239 155 236 122 253 92 281 63
+bezier
+307 131 307 104 313 80 328 60
+bezier
+306 110 297 90 289 66 300 43
+bezier
+308 103 305 70 309 52 327 44
+bezier
+87 159 80 124 82 91 105 72
+bezier
+110 167 99 124 84 102 89 68
+bezier
+53 159 53 112 64 77 94 57
+bezier
+209 168 202 123 201 82 216 45
+bezier
+217 173 213 119 234 74 250 51
+bezier
+373 148 341 103 336 76 342 57
+bezier
+317 156 303 122 297 77 324 38
+bezier
+235 136 245 93 271 65 286 44
+bezier
+161 153 166 126 180 89 197 68
+bezier
+145 143 145 109 153 90 168 70
+bezier
+143 124 149 88 165 67 200 51
+bezier
+137 123 149 84 165 60 202 44
+bezier
+209 135 220 101 226 78 249 36
+bezier
+239 106 241 67 265 50 302 34
+bezier
+301 82 304 41 318 29 343 22
+bezier
+408 140 376 107 365 80 385 32
+bezier
+424 138 399 117 393 90 427 49
+bezier
+371 104 361 95 360 75 373 44
+bezier
+355 115 339 100 325 80 333 49
+bezier
+264 119 265 91 271 72 289 56
+bezier
+121 157 116 132 119 92 137 63
+bezier
+117 151 112 127 119 107 135 69
+bezier
+159 154 162 125 171 101 195 72
+bezier
+161 161 163 123 168 104 191 70
+bezier
+162 158 161 128 169 105 181 80
+bezier
+161 160 160 125 168 101 197 67
+bezier
+172 84 166 104 153 125 160 151
+bezier
+163 160 170 116 194 74 222 50
+bezier
+213 120 213 103 229 48 226 62
+bezier
+213 140 210 110 211 85 234 37
+bezier
+205 125 197 102 200 62 219 34
+bezier
+343 108 328 86 318 57 351 32
+bezier
+408 132 393 96 400 59 441 47
+bezier
+410 128 394 98 369 77 401 26
+bezier
+410 126 396 110 377 44 400 44
+bezier
+397 123 371 88 370 38 410 28
+bezier
+361 100 336 63 345 23 371 23
+bezier
+373 94 355 40 389 30 411 18
+bezier
+375 108 346 57 357 20 380 23
+bezier
+368 103 343 57 345 34 389 35
+bezier
+422 118 417 93 427 70 439 67
+bezier
+457 146 429 124 436 90 452 76
+bezier
+464 144 432 122 438 84 454 68
+bezier
+453 135 418 107 429 79 440 68
+bezier
+466 128 437 117 425 103 429 65
+bezier
+444 81 453 129 421 116 408 95
+bezier
+412 68 449 104 458 135 437 132
+bezier
+445 141 431 121 409 92 425 55
+bezier
+440 140 429 122 413 97 420 70
+bezier
+463 139 445 120 448 90 455 67
+bezier
+429 128 419 116 416 100 414 74
+bezier
+429 132 413 121 414 104 415 74
+bezier
+457 152 430 136 416 117 412 70
+bezier
+407 123 397 83 405 52 425 29
+bezier
+409 106 393 72 399 45 423 19
+bezier
+57 146 65 109 75 88 106 54
+bezier
+55 151 66 129 76 91 133 63
+bezier
+58 146 61 107 73 85 99 58
+bezier
+59 139 80 98 85 86 93 77
+bezier
+55 145 73 97 71 85 81 58
+bezier
+49 116 65 92 85 70 109 56
+bezier
+117 145 107 126 100 101 103 62
+bezier
+119 134 111 118 111 92 133 51
+bezier
+111 141 101 117 99 92 98 55
+bezier
+152 137 138 109 122 69 123 47
+bezier
+151 142 141 124 129 89 119 57
+bezier
+161 124 135 102 135 79 133 51
+bezier
+164 112 154 79 146 56 161 44
+bezier
+158 115 154 73 139 56 146 28
+bezier
+117 168 117 136 113 107 114 57
+bezier
+209 142 189 114 173 68 182 24
+bezier
+245 120 257 96 252 68 289 17
+bezier
+229 132 241 102 249 76 258 26
+bezier
+329 95 313 80 294 23 315 13
+bezier
+348 88 332 74 329 51 332 15
+bezier
+293 92 283 71 289 37 299 12
+bezier
+101 122 96 102 91 71 97 44
+bezier
+111 121 113 97 112 71 118 40
+bezier
+153 117 137 82 143 68 144 26
+bezier
+146 136 133 116 125 83 136 39
+bezier
+212 150 217 118 216 72 227 34
+bezier
+252 30 233 40 235 72 226 117
+bezier
+247 83 261 40 269 23 299 12
+bezier
+245 98 250 80 257 61 274 12
+bezier
+228 111 246 90 265 59 250 8
+bezier
+224 108 249 97 260 69 234 28
+bezier
+209 128 193 104 196 54 209 12
+bezier
+206 131 177 97 178 48 200 18
+bezier
+166 100 165 75 159 35 209 20
+bezier
+221 129 187 84 217 20 237 13
+bezier
+195 113 179 93 193 53 232 9
+bezier
+206 96 179 94 189 47 240 25
+bezier
+350 88 338 55 347 14 396 13
+bezier
+340 89 315 67 326 47 353 19
+bezier
+327 87 301 65 317 36 341 8
+bezier
+353 100 312 84 271 70 306 39
+bezier
+369 101 328 73 306 48 315 22
+bezier
+373 100 330 88 308 55 360 30
+bezier
+407 108 373 79 376 37 412 26
+bezier
+428 109 390 111 346 59 369 30
+bezier
+407 135 385 101 378 60 411 47
+bezier
+363 99 344 58 358 30 378 21
+bezier
+166 213 152 164 160 133 178 81
+bezier
+253 137 249 111 249 80 268 45
+bezier
+113 145 103 120 97 92 117 47
+bezier
+111 147 97 115 87 80 104 44
+bezier
+164 117 157 74 168 48 193 29
+bezier
+185 92 172 63 172 24 226 10
+bezier
+209 100 226 60 241 27 260 9
+bezier
+209 80 218 46 244 15 289 12
+bezier
+280 88 285 63 297 31 306 15
+bezier
+257 98 273 62 284 26 290 6
+bezier
+210 136 194 102 183 47 189 16
+bezier
+180 66 164 46 162 22 179 12
+bezier
+175 92 166 60 151 40 157 17
+bezier
+167 93 157 60 130 36 152 16
+bezier
+193 66 151 51 129 34 159 19
+bezier
+201 61 163 35 179 17 205 6
+bezier
+172 80 131 44 129 26 137 21
+bezier
+116 68 119 36 141 16 161 10
+bezier
+169 70 132 42 120 23 133 15
+bezier
+191 57 172 32 153 20 164 10
+move
+1 0 0
+bezier
+180 216 146 176 148 110 172 88
+bezier
+200 190 182 130 206 92 223 76
+bezier
+176 168 181 119 186 82 218 67
+bezier
+216 194 207 128 237 69 262 60
+bezier
+225 179 228 118 229 80 267 53
+bezier
+154 186 143 133 164 88 182 71
+bezier
+135 201 117 148 125 98 152 71
+bezier
+119 190 102 140 98 93 118 72
+bezier
+121 171 115 129 120 94 141 67
+bezier
+153 160 131 117 106 90 123 63
+bezier
+164 180 166 132 185 88 209 68
+bezier
+159 184 165 138 178 104 204 64
+bezier
+282 166 274 130 281 83 299 60
+bezier
+275 126 273 93 277 63 287 40
+bezier
+239 155 236 122 253 92 281 63
+bezier
+307 131 307 104 313 80 328 60
+bezier
+306 110 297 90 289 66 300 43
+bezier
+308 103 305 70 309 52 327 44
+bezier
+87 159 80 124 82 91 105 72
+bezier
+110 167 99 124 84 102 89 68
+bezier
+53 159 53 112 64 77 94 57
+bezier
+209 168 202 123 201 82 216 45
+bezier
+217 173 213 119 234 74 250 51
+bezier
+373 148 341 103 336 76 342 57
+bezier
+317 156 303 122 297 77 324 38
+bezier
+235 136 245 93 271 65 286 44
+bezier
+161 153 166 126 180 89 197 68
+bezier
+145 143 145 109 153 90 168 70
+bezier
+143 124 149 88 165 67 200 51
+bezier
+137 123 149 84 165 60 202 44
+bezier
+209 135 220 101 226 78 249 36
+bezier
+239 106 241 67 265 50 302 34
+bezier
+301 82 304 41 318 29 343 22
+bezier
+408 140 376 107 365 80 385 32
+bezier
+424 138 399 117 393 90 427 49
+bezier
+371 104 361 95 360 75 373 44
+bezier
+355 115 339 100 325 80 333 49
+bezier
+264 119 265 91 271 72 289 56
+bezier
+121 157 116 132 119 92 137 63
+bezier
+117 151 112 127 119 107 135 69
+bezier
+159 154 162 125 171 101 195 72
+bezier
+161 161 163 123 168 104 191 70
+bezier
+162 158 161 128 169 105 181 80
+bezier
+161 160 160 125 168 101 197 67
+bezier
+172 84 166 104 153 125 160 151
+bezier
+163 160 170 116 194 74 222 50
+bezier
+213 120 213 103 229 48 226 62
+bezier
+213 140 210 110 211 85 234 37
+bezier
+205 125 197 102 200 62 219 34
+bezier
+343 108 328 86 318 57 351 32
+bezier
+408 132 393 96 400 59 441 47
+bezier
+410 128 394 98 369 77 401 26
+bezier
+410 126 396 110 377 44 400 44
+bezier
+397 123 371 88 370 38 410 28
+bezier
+361 100 336 63 345 23 371 23
+bezier
+373 94 355 40 389 30 411 18
+bezier
+375 108 346 57 357 20 380 23
+bezier
+368 103 343 57 345 34 389 35
+bezier
+422 118 417 93 427 70 439 67
+bezier
+457 146 429 124 436 90 452 76
+bezier
+464 144 432 122 438 84 454 68
+bezier
+453 135 418 107 429 79 440 68
+bezier
+466 128 437 117 425 103 429 65
+bezier
+444 81 453 129 421 116 408 95
+bezier
+412 68 449 104 458 135 437 132
+bezier
+445 141 431 121 409 92 425 55
+bezier
+440 140 429 122 413 97 420 70
+bezier
+463 139 445 120 448 90 455 67
+bezier
+429 128 419 116 416 100 414 74
+bezier
+429 132 413 121 414 104 415 74
+bezier
+457 152 430 136 416 117 412 70
+bezier
+407 123 397 83 405 52 425 29
+bezier
+409 106 393 72 399 45 423 19
+bezier
+57 146 65 109 75 88 106 54
+bezier
+55 151 66 129 76 91 133 63
+bezier
+58 146 61 107 73 85 99 58
+bezier
+59 139 80 98 85 86 93 77
+bezier
+55 145 73 97 71 85 81 58
+bezier
+49 116 65 92 85 70 109 56
+bezier
+117 145 107 126 100 101 103 62
+bezier
+119 134 111 118 111 92 133 51
+bezier
+111 141 101 117 99 92 98 55
+bezier
+152 137 138 109 122 69 123 47
+bezier
+151 142 141 124 129 89 119 57
+bezier
+161 124 135 102 135 79 133 51
+bezier
+164 112 154 79 146 56 161 44
+bezier
+158 115 154 73 139 56 146 28
+bezier
+117 168 117 136 113 107 114 57
+bezier
+209 142 189 114 173 68 182 24
+bezier
+245 120 257 96 252 68 289 17
+bezier
+229 132 241 102 249 76 258 26
+bezier
+329 95 313 80 294 23 315 13
+bezier
+348 88 332 74 329 51 332 15
+bezier
+293 92 283 71 289 37 299 12
+bezier
+101 122 96 102 91 71 97 44
+bezier
+111 121 113 97 112 71 118 40
+bezier
+153 117 137 82 143 68 144 26
+bezier
+146 136 133 116 125 83 136 39
+bezier
+212 150 217 118 216 72 227 34
+bezier
+252 30 233 40 235 72 226 117
+bezier
+247 83 261 40 269 23 299 12
+bezier
+245 98 250 80 257 61 274 12
+bezier
+228 111 246 90 265 59 250 8
+bezier
+224 108 249 97 260 69 234 28
+bezier
+209 128 193 104 196 54 209 12
+bezier
+206 131 177 97 178 48 200 18
+bezier
+166 100 165 75 159 35 209 20
+bezier
+221 129 187 84 217 20 237 13
+bezier
+195 113 179 93 193 53 232 9
+bezier
+206 96 179 94 189 47 240 25
+bezier
+350 88 338 55 347 14 396 13
+bezier
+340 89 315 67 326 47 353 19
+bezier
+327 87 301 65 317 36 341 8
+bezier
+353 100 312 84 271 70 306 39
+bezier
+369 101 328 73 306 48 315 22
+bezier
+373 100 330 88 308 55 360 30
+bezier
+407 108 373 79 376 37 412 26
+bezier
+428 109 390 111 346 59 369 30
+bezier
+407 135 385 101 378 60 411 47
+bezier
+363 99 344 58 358 30 378 21
+bezier
+166 213 152 164 160 133 178 81
+bezier
+253 137 249 111 249 80 268 45
+bezier
+113 145 103 120 97 92 117 47
+bezier
+111 147 97 115 87 80 104 44
+bezier
+164 117 157 74 168 48 193 29
+bezier
+185 92 172 63 172 24 226 10
+bezier
+209 100 226 60 241 27 260 9
+bezier
+209 80 218 46 244 15 289 12
+bezier
+280 88 285 63 297 31 306 15
+bezier
+257 98 273 62 284 26 290 6
+bezier
+210 136 194 102 183 47 189 16
+bezier
+180 66 164 46 162 22 179 12
+bezier
+175 92 166 60 151 40 157 17
+bezier
+167 93 157 60 130 36 152 16
+bezier
+193 66 151 51 129 34 159 19
+bezier
+201 61 163 35 179 17 205 6
+bezier
+172 80 131 44 129 26 137 21
+bezier
+116 68 119 36 141 16 161 10
+bezier
+169 70 132 42 120 23 133 15
+bezier
+191 57 172 32 153 20 164 10
+move
+1 0 0
+bezier
+180 216 146 176 148 110 172 88
+bezier
+200 190 182 130 206 92 223 76
+bezier
+176 168 181 119 186 82 218 67
+bezier
+216 194 207 128 237 69 262 60
+bezier
+225 179 228 118 229 80 267 53
+bezier
+154 186 143 133 164 88 182 71
+bezier
+135 201 117 148 125 98 152 71
+bezier
+119 190 102 140 98 93 118 72
+bezier
+121 171 115 129 120 94 141 67
+bezier
+153 160 131 117 106 90 123 63
+bezier
+164 180 166 132 185 88 209 68
+bezier
+159 184 165 138 178 104 204 64
+bezier
+282 166 274 130 281 83 299 60
+bezier
+275 126 273 93 277 63 287 40
+bezier
+239 155 236 122 253 92 281 63
+bezier
+307 131 307 104 313 80 328 60
+bezier
+306 110 297 90 289 66 300 43
+bezier
+308 103 305 70 309 52 327 44
+bezier
+87 159 80 124 82 91 105 72
+bezier
+110 167 99 124 84 102 89 68
+bezier
+53 159 53 112 64 77 94 57
+bezier
+209 168 202 123 201 82 216 45
+bezier
+217 173 213 119 234 74 250 51
+bezier
+373 148 341 103 336 76 342 57
+bezier
+317 156 303 122 297 77 324 38
+bezier
+235 136 245 93 271 65 286 44
+bezier
+161 153 166 126 180 89 197 68
+bezier
+145 143 145 109 153 90 168 70
+bezier
+143 124 149 88 165 67 200 51
+bezier
+137 123 149 84 165 60 202 44
+bezier
+209 135 220 101 226 78 249 36
+bezier
+239 106 241 67 265 50 302 34
+bezier
+301 82 304 41 318 29 343 22
+bezier
+408 140 376 107 365 80 385 32
+bezier
+424 138 399 117 393 90 427 49
+bezier
+371 104 361 95 360 75 373 44
+bezier
+355 115 339 100 325 80 333 49
+bezier
+264 119 265 91 271 72 289 56
+bezier
+121 157 116 132 119 92 137 63
+bezier
+117 151 112 127 119 107 135 69
+bezier
+159 154 162 125 171 101 195 72
+bezier
+161 161 163 123 168 104 191 70
+bezier
+162 158 161 128 169 105 181 80
+bezier
+161 160 160 125 168 101 197 67
+bezier
+172 84 166 104 153 125 160 151
+bezier
+163 160 170 116 194 74 222 50
+bezier
+213 120 213 103 229 48 226 62
+bezier
+213 140 210 110 211 85 234 37
+bezier
+205 125 197 102 200 62 219 34
+bezier
+343 108 328 86 318 57 351 32
+bezier
+408 132 393 96 400 59 441 47
+bezier
+410 128 394 98 369 77 401 26
+bezier
+410 126 396 110 377 44 400 44
+bezier
+397 123 371 88 370 38 410 28
+bezier
+361 100 336 63 345 23 371 23
+bezier
+373 94 355 40 389 30 411 18
+bezier
+375 108 346 57 357 20 380 23
+bezier
+368 103 343 57 345 34 389 35
+bezier
+422 118 417 93 427 70 439 67
+bezier
+457 146 429 124 436 90 452 76
+bezier
+464 144 432 122 438 84 454 68
+bezier
+453 135 418 107 429 79 440 68
+bezier
+466 128 437 117 425 103 429 65
+bezier
+444 81 453 129 421 116 408 95
+bezier
+412 68 449 104 458 135 437 132
+bezier
+445 141 431 121 409 92 425 55
+bezier
+440 140 429 122 413 97 420 70
+bezier
+463 139 445 120 448 90 455 67
+bezier
+429 128 419 116 416 100 414 74
+bezier
+429 132 413 121 414 104 415 74
+bezier
+457 152 430 136 416 117 412 70
+bezier
+407 123 397 83 405 52 425 29
+bezier
+409 106 393 72 399 45 423 19
+bezier
+57 146 65 109 75 88 106 54
+bezier
+55 151 66 129 76 91 133 63
+bezier
+58 146 61 107 73 85 99 58
+bezier
+59 139 80 98 85 86 93 77
+bezier
+55 145 73 97 71 85 81 58
+bezier
+49 116 65 92 85 70 109 56
+bezier
+117 145 107 126 100 101 103 62
+bezier
+119 134 111 118 111 92 133 51
+bezier
+111 141 101 117 99 92 98 55
+bezier
+152 137 138 109 122 69 123 47
+bezier
+151 142 141 124 129 89 119 57
+bezier
+161 124 135 102 135 79 133 51
+bezier
+164 112 154 79 146 56 161 44
+bezier
+158 115 154 73 139 56 146 28
+bezier
+117 168 117 136 113 107 114 57
+bezier
+209 142 189 114 173 68 182 24
+bezier
+245 120 257 96 252 68 289 17
+bezier
+229 132 241 102 249 76 258 26
+bezier
+329 95 313 80 294 23 315 13
+bezier
+348 88 332 74 329 51 332 15
+bezier
+293 92 283 71 289 37 299 12
+bezier
+101 122 96 102 91 71 97 44
+bezier
+111 121 113 97 112 71 118 40
+bezier
+153 117 137 82 143 68 144 26
+bezier
+146 136 133 116 125 83 136 39
+bezier
+212 150 217 118 216 72 227 34
+bezier
+252 30 233 40 235 72 226 117
+bezier
+247 83 261 40 269 23 299 12
+bezier
+245 98 250 80 257 61 274 12
+bezier
+228 111 246 90 265 59 250 8
+bezier
+224 108 249 97 260 69 234 28
+bezier
+209 128 193 104 196 54 209 12
+bezier
+206 131 177 97 178 48 200 18
+bezier
+166 100 165 75 159 35 209 20
+bezier
+221 129 187 84 217 20 237 13
+bezier
+195 113 179 93 193 53 232 9
+bezier
+206 96 179 94 189 47 240 25
+bezier
+350 88 338 55 347 14 396 13
+bezier
+340 89 315 67 326 47 353 19
+bezier
+327 87 301 65 317 36 341 8
+bezier
+353 100 312 84 271 70 306 39
+bezier
+369 101 328 73 306 48 315 22
+bezier
+373 100 330 88 308 55 360 30
+bezier
+407 108 373 79 376 37 412 26
+bezier
+428 109 390 111 346 59 369 30
+bezier
+407 135 385 101 378 60 411 47
+bezier
+363 99 344 58 358 30 378 21
+bezier
+166 213 152 164 160 133 178 81
+bezier
+253 137 249 111 249 80 268 45
+bezier
+113 145 103 120 97 92 117 47
+bezier
+111 147 97 115 87 80 104 44
+bezier
+164 117 157 74 168 48 193 29
+bezier
+185 92 172 63 172 24 226 10
+bezier
+209 100 226 60 241 27 260 9
+bezier
+209 80 218 46 244 15 289 12
+bezier
+280 88 285 63 297 31 306 15
+bezier
+257 98 273 62 284 26 290 6
+bezier
+210 136 194 102 183 47 189 16
+bezier
+180 66 164 46 162 22 179 12
+bezier
+175 92 166 60 151 40 157 17
+bezier
+167 93 157 60 130 36 152 16
+bezier
+193 66 151 51 129 34 159 19
+bezier
+201 61 163 35 179 17 205 6
+bezier
+172 80 131 44 129 26 137 21
+bezier
+116 68 119 36 141 16 161 10
+bezier
+169 70 132 42 120 23 133 15
+bezier
+191 57 172 32 153 20 164 10
+move
+-2 0 0
+bezier
+52 223 54 215 61 202 63 201
+bezier
+57 220 78 217 85 216 86 216
+bezier
+61 225 81 224 93 220 98 219
+bezier
+86 232 106 228 116 224 118 224
+bezier
+118 223 117 227 126 228 133 231
+bezier
+108 233 128 231 129 231 132 229
+bezier
+79 225 92 224 101 223 105 220
+bezier
+61 228 79 222 83 217 83 204
+bezier
+275 219 303 208 337 197 361 204
+bezier
+297 224 322 217 340 213 358 210
+bezier
+396 220 388 214 366 212 336 208
+bezier
+297 220 308 217 321 210 331 199
+bezier
+339 213 361 213 376 210 388 205
+bezier
+389 225 383 221 382 205 370 212
+bezier
+329 201 344 212 353 213 371 219
+bezier
+325 205 347 213 365 220 376 222
+bezier
+354 201 365 208 380 214 393 216
+bezier
+321 210 344 205 354 203 385 210
+bezier
+373 218 350 213 333 212 317 212
+bezier
+53 219 66 219 81 220 97 216
+bezier
+120 226 102 214 85 213 65 212
+bezier
+54 222 75 227 95 228 113 230
+bezier
+112 225 97 222 77 217 67 216
+bezier
+63 228 81 225 91 216 102 213
+bezier
+375 223 331 213 305 212 292 221
+bezier
+287 220 309 203 336 201 346 212
+bezier
+376 215 345 198 321 200 315 213
+bezier
+133 233 139 233 123 228 113 224
+bezier
+391 204 394 205 405 208 392 214
+bezier
+155 244 151 240 149 234 139 232
+push
+scale
+0.6 0.6 0.6
+push
+move
+0 -350 -400
+push
+move
+20 47 0
+scale
+0.7 0.9 0.7
+ka
+1 1 1
+bezier
+13 408 13 414 12 427 11 439
+bezier
+12 408 21 408 25 409 34 410
+bezier
+13 420 17 420 24 420 25 420
+bezier
+41 410 40 420 39 428 38 436
+bezier
+38 436 45 437 53 437 57 438
+bezier
+41 410 47 412 56 412 60 413
+bezier
+39 422 45 422 49 423 52 424
+bezier
+63 438 64 431 67 419 73 409
+bezier
+73 409 79 415 81 427 81 433
+bezier
+78 420 73 420 71 420 68 421
+bezier
+93 415 91 424 92 432 91 438
+bezier
+93 413 101 412 102 424 91 426
+bezier
+91 426 97 433 99 435 101 436
+bezier
+152 415 142 411 133 417 133 428
+bezier
+133 428 137 436 145 436 152 432
+bezier
+152 432 154 422 155 415 150 415
+bezier
+162 414 162 420 161 428 161 436
+bezier
+161 414 171 415 177 415 181 416
+bezier
+161 421 165 421 169 421 171 422
+bezier
+209 438 210 426 214 416 217 412
+bezier
+215 411 221 424 225 430 227 434
+bezier
+209 426 215 426 220 425 221 425
+pop
+move
+-250 40 0
+bezier
+265 416 265 424 263 428 264 434
+bezier
+263 432 278 435 278 425 264 423
+bezier
+264 422 277 421 277 412 262 412
+bezier
+281 414 279 423 280 434 279 436
+bezier
+278 434 284 434 288 434 291 434
+bezier
+298 435 300 426 302 415 305 411
+bezier
+305 411 309 423 311 427 312 431
+bezier
+301 423 304 423 306 423 309 423
+bezier
+318 436 318 428 320 417 321 412
+bezier
+321 412 329 423 333 432 333 435
+bezier
+333 435 336 421 338 416 338 414
+bezier
+346 413 345 418 345 426 345 434
+bezier
+344 424 350 420 351 416 354 413
+bezier
+345 422 350 426 353 432 353 432
+bezier
+383 416 381 420 381 428 379 433
+bezier
+382 416 395 416 394 424 380 424
+bezier
+397 413 396 420 394 432 393 437
+bezier
+393 437 399 437 405 439 410 439
+bezier
+417 439 419 431 421 424 423 416
+bezier
+423 416 425 424 426 432 426 438
+bezier
+419 429 422 429 424 429 425 429
+bezier
+432 439 432 431 432 420 431 412
+bezier
+431 412 437 417 442 434 444 439
+bezier
+444 439 442 428 442 420 442 412
+bezier
+449 412 450 424 449 433 450 436
+bezier
+448 434 452 433 457 433 460 433
+bezier
+449 411 453 412 460 412 460 412
+bezier
+449 424 453 424 456 424 461 424
+bezier
+469 410 476 410 481 411 489 411
+bezier
+478 409 479 424 478 428 477 436
+push
+move
+230 330 0
+scale
+0.6 0.6 0.6
+bezier
+65 13 63 28 62 42 61 54
+bezier
+63 12 85 12 84 33 63 29
+bezier
+97 16 88 19 81 32 87 47
+bezier
+87 47 99 52 108 48 111 40
+bezier
+111 40 111 28 104 16 93 12
+bezier
+122 11 121 24 120 35 117 50
+bezier
+120 9 140 9 136 31 118 28
+bezier
+118 28 125 37 129 43 133 46
+bezier
+163 26 157 12 144 11 141 22
+bezier
+141 22 136 35 143 44 149 46
+bezier
+149 46 159 44 163 40 163 39
+bezier
+176 11 175 28 175 35 175 35
+bezier
+175 35 177 52 193 54 193 40
+bezier
+193 40 192 30 191 19 191 12
+bezier
+199 13 198 27 199 38 197 50
+bezier
+198 13 218 13 217 32 197 28
+bezier
+223 15 221 28 221 40 220 50
+bezier
+230 48 230 30 231 14 231 14
+bezier
+230 13 241 27 249 40 255 47
+bezier
+255 47 254 36 254 27 253 16
+bezier
+260 16 262 28 261 41 261 46
+bezier
+261 46 273 47 277 47 281 47
+bezier
+260 16 267 16 273 16 281 17
+bezier
+261 30 266 30 273 30 277 30
+bezier
+317 16 324 16 334 16 349 17
+bezier
+332 16 329 28 329 36 327 44
+bezier
+357 19 355 34 355 41 355 48
+bezier
+357 19 371 20 373 34 354 35
+bezier
+354 35 363 44 365 47 368 50
+bezier
+383 18 383 30 381 39 381 44
+bezier
+381 44 389 45 398 46 402 48
+bezier
+382 16 387 16 397 17 405 19
+bezier
+381 30 389 32 394 33 400 35
+bezier
+414 19 414 31 413 47 413 47
+bezier
+413 47 421 50 430 50 434 51
+bezier
+415 19 425 21 433 23 437 24
+bezier
+413 34 419 35 425 36 428 37
 display
 save
 foabp.png
